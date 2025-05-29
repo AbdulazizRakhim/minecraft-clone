@@ -1,0 +1,1421 @@
+# depslib dependency file v1.0
+1748510327 source:c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\src\camera.c
+	"GL/gl.h"
+	"windows.h"
+	"map.h"
+	"math.h"
+	"camera.h"
+	"time.h"
+	"sound.h"
+
+1748509231 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\camera.h
+
+1748508736 source:c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\main.c
+	"windows.h"
+	"gl/gl.h"
+	"math.h"
+	"mmsystem.h"
+	"SDL.h"
+	"SDL_mixer.h"
+	"camera.h"
+	"stb/stb_image.h"
+	"main.h"
+	"sound.h"
+
+1738177088 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\stb\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1748506947 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\main.h
+
+1747171480 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_assert.h>
+	<SDL3/SDL_asyncio.h>
+	<SDL3/SDL_atomic.h>
+	<SDL3/SDL_audio.h>
+	<SDL3/SDL_bits.h>
+	<SDL3/SDL_blendmode.h>
+	<SDL3/SDL_camera.h>
+	<SDL3/SDL_clipboard.h>
+	<SDL3/SDL_cpuinfo.h>
+	<SDL3/SDL_dialog.h>
+	<SDL3/SDL_endian.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_events.h>
+	<SDL3/SDL_filesystem.h>
+	<SDL3/SDL_gamepad.h>
+	<SDL3/SDL_gpu.h>
+	<SDL3/SDL_guid.h>
+	<SDL3/SDL_haptic.h>
+	<SDL3/SDL_hidapi.h>
+	<SDL3/SDL_hints.h>
+	<SDL3/SDL_init.h>
+	<SDL3/SDL_iostream.h>
+	<SDL3/SDL_joystick.h>
+	<SDL3/SDL_keyboard.h>
+	<SDL3/SDL_keycode.h>
+	<SDL3/SDL_loadso.h>
+	<SDL3/SDL_locale.h>
+	<SDL3/SDL_log.h>
+	<SDL3/SDL_messagebox.h>
+	<SDL3/SDL_metal.h>
+	<SDL3/SDL_misc.h>
+	<SDL3/SDL_mouse.h>
+	<SDL3/SDL_mutex.h>
+	<SDL3/SDL_pen.h>
+	<SDL3/SDL_pixels.h>
+	<SDL3/SDL_platform.h>
+	<SDL3/SDL_power.h>
+	<SDL3/SDL_process.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_rect.h>
+	<SDL3/SDL_render.h>
+	<SDL3/SDL_scancode.h>
+	<SDL3/SDL_sensor.h>
+	<SDL3/SDL_storage.h>
+	<SDL3/SDL_surface.h>
+	<SDL3/SDL_system.h>
+	<SDL3/SDL_thread.h>
+	<SDL3/SDL_time.h>
+	<SDL3/SDL_timer.h>
+	<SDL3/SDL_tray.h>
+	<SDL3/SDL_touch.h>
+	<SDL3/SDL_version.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_oldnames.h>
+
+1746380193 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_stdinc.h
+	<SDL3/SDL_platform_defines.h>
+	<stdarg.h>
+	<stdint.h>
+	<string.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdbool.h>
+	<alloca.h>
+	<stdlib.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	<SDL3/SDL_begin_code.h>
+	<stdio.h>
+	<stdlib.h>
+	<SDL3/SDL_close_code.h>
+
+1738706261 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_platform_defines.h
+	<AvailabilityMacros.h>
+	<TargetConditionals.h>
+	<TargetConditionals.h>
+	<winapifamily.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_begin_code.h
+
+1735746352 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_close_code.h
+
+1740164874 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_assert.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<assert.h>
+	<signal.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_asyncio.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1738090876 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_atomic.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_platform_defines.h>
+	<SDL3/SDL_begin_code.h>
+	<mbarrier.h>
+	<SDL3/SDL_close_code.h>
+
+1742513404 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_audio.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_endian.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_mutex.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_iostream.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_endian.h
+	<SDL3/SDL_stdinc.h>
+	<intrin.h>
+	<endian.h>
+	<sys/byteorder.h>
+	<endian.h>
+	<sys/endian.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_error.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_mutex.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_atomic.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_thread.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1738631006 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_thread.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_atomic.h>
+	<process.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_properties.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_iostream.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_bits.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_blendmode.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1738201793 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_camera.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_pixels.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_surface.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1739236696 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_pixels.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_endian.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1745342514 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_surface.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_blendmode.h>
+	<SDL3/SDL_pixels.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_rect.h>
+	<SDL3/SDL_iostream.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1738640796 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_rect.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_clipboard.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_cpuinfo.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1740846379 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_dialog.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1743695667 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_video.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_pixels.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_rect.h>
+	<SDL3/SDL_surface.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1746157914 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_events.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_audio.h>
+	<SDL3/SDL_camera.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_gamepad.h>
+	<SDL3/SDL_joystick.h>
+	<SDL3/SDL_keyboard.h>
+	<SDL3/SDL_keycode.h>
+	<SDL3/SDL_mouse.h>
+	<SDL3/SDL_pen.h>
+	<SDL3/SDL_power.h>
+	<SDL3/SDL_sensor.h>
+	<SDL3/SDL_scancode.h>
+	<SDL3/SDL_touch.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737694023 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_gamepad.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_guid.h>
+	<SDL3/SDL_iostream.h>
+	<SDL3/SDL_joystick.h>
+	<SDL3/SDL_power.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_sensor.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1738867461 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_guid.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_joystick.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_guid.h>
+	<SDL3/SDL_mutex.h>
+	<SDL3/SDL_power.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_sensor.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1743436399 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_power.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_sensor.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_keyboard.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_keycode.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_rect.h>
+	<SDL3/SDL_scancode.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_keycode.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_scancode.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_scancode.h
+	<SDL3/SDL_stdinc.h>
+
+1738631006 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_mouse.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_surface.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483561 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_pen.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_mouse.h>
+	<SDL3/SDL_touch.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_touch.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_mouse.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_filesystem.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1745450184 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_gpu.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_pixels.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_rect.h>
+	<SDL3/SDL_surface.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_haptic.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_joystick.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_hidapi.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1745337538 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_hints.h
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_init.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_events.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_loadso.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_locale.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1739425178 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_log.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_messagebox.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_metal.h
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_misc.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_platform.h
+	<SDL3/SDL_platform_defines.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1738631006 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_process.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_iostream.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1745342277 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_render.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_blendmode.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_events.h>
+	<SDL3/SDL_pixels.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_rect.h>
+	<SDL3/SDL_surface.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1740502692 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_storage.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_filesystem.h>
+	<SDL3/SDL_properties.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_system.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_keyboard.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_time.h
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1737483145 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_timer.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1738770341 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_tray.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_error.h>
+	<SDL3/SDL_surface.h>
+	<SDL3/SDL_video.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1747171480 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_version.h
+	<SDL3/SDL_stdinc.h>
+	<SDL3/SDL_begin_code.h>
+	<SDL3/SDL_close_code.h>
+
+1735867089 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl3\include\sdl3\sdl_oldnames.h
+	<SDL3/SDL_platform_defines.h>
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_guid.h"
+	"SDL_haptic.h"
+	"SDL_hidapi.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_metal.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"SDL_locale.h"
+	"SDL_misc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"close_code.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_windows.h"
+	"SDL_config_winrt.h"
+	"SDL_config_wingdk.h"
+	"SDL_config_xbox.h"
+	"SDL_config_macosx.h"
+	"SDL_config_iphoneos.h"
+	"SDL_config_android.h"
+	"SDL_config_os2.h"
+	"SDL_config_emscripten.h"
+	"SDL_config_ngage.h"
+	"SDL_config_minimal.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_platform.h
+	<AvailabilityMacros.h>
+	<TargetConditionals.h>
+	<TargetConditionals.h>
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\begin_code.h
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\close_code.h
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_windows.h
+	"SDL_platform.h"
+	<winsdkver.h>
+	<sdkddkver.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_winrt.h
+	"SDL_platform.h"
+	<sdkddkver.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_wingdk.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_xbox.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_iphoneos.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_android.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_os2.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_emscripten.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_ngage.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_config_minimal.h
+	"SDL_platform.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_assert.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<endian.h>
+	<endian.h>
+	<sys/endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<arm_neon.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<arm64intr.h>
+	<arm64_neon.h>
+	<mm3dnow.h>
+	<lsxintrin.h>
+	<lasxintrin.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_guid.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_guid.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_hidapi.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_metal.h
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_locale.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\sdl2\include\sdl2\sdl_misc.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_guid.h"
+	"SDL_haptic.h"
+	"SDL_hidapi.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_metal.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"SDL_locale.h"
+	"SDL_misc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"close_code.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_windows.h"
+	"SDL_config_winrt.h"
+	"SDL_config_wingdk.h"
+	"SDL_config_xbox.h"
+	"SDL_config_macosx.h"
+	"SDL_config_iphoneos.h"
+	"SDL_config_android.h"
+	"SDL_config_os2.h"
+	"SDL_config_emscripten.h"
+	"SDL_config_ngage.h"
+	"SDL_config_minimal.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_platform.h
+	<AvailabilityMacros.h>
+	<TargetConditionals.h>
+	<TargetConditionals.h>
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\begin_code.h
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\close_code.h
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_windows.h
+	"SDL_platform.h"
+	<winsdkver.h>
+	<sdkddkver.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_winrt.h
+	"SDL_platform.h"
+	<sdkddkver.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_wingdk.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_xbox.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_iphoneos.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_android.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_os2.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_emscripten.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_ngage.h
+	"SDL_platform.h"
+
+1735746525 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_config_minimal.h
+	"SDL_platform.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_assert.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<endian.h>
+	<endian.h>
+	<sys/endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<arm_neon.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<arm64intr.h>
+	<arm64_neon.h>
+	<mm3dnow.h>
+	<lsxintrin.h>
+	<lasxintrin.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_guid.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_guid.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_hidapi.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_metal.h
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454559 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_locale.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738454558 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2\include\sdl2\sdl_misc.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1738962281 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sdl2_mixer\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1748440490 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\sound.h
+	"SDL_mixer.h"
+
+1748441143 source:c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\src\sound.c
+	"sound.h"
+	"stdio.h"
+
+1748438203 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\map.h
+
