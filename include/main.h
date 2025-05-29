@@ -143,8 +143,6 @@ int selectedSlotIndex = 0;
 
 ///
 #define SLOT_SIZE 50
-#define SCREEN_WIDTH 1920
-#define SCREEN_HEIGHT 1080
 ///
 
 // Health bars
@@ -156,8 +154,8 @@ float heart_shape[] = {0.5,0.25, 0.25,0, 0,0.25, 0.5,1, 1,0.25, 0.75,0};
 
 BOOL mouseBind = TRUE;
 
-float Map_Obtain_Height(float x, float y);
 
+float Map_Obtain_Height(float x, float y);
 
 
 #endif // MAIN_H_INCLUDED

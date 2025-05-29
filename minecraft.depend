@@ -1419,3 +1419,54 @@
 
 1748438203 c:\users\abdul\onedrive\masaüstü\personal projects\minecraft\include\map.h
 
+1748441143 source:c:\users\abdul\projects\minecraft\src\sound.c
+	"sound.h"
+	"stdio.h"
+
+1748440490 c:\users\abdul\projects\minecraft\include\sound.h
+	"SDL_mixer.h"
+
+1748535861 source:c:\users\abdul\projects\minecraft\main.c
+	"windows.h"
+	"gl/gl.h"
+	"math.h"
+	"mmsystem.h"
+	"SDL.h"
+	"SDL_mixer.h"
+	"camera.h"
+	"stb/stb_image.h"
+	"main.h"
+	"sound.h"
+
+1748509231 c:\users\abdul\projects\minecraft\include\camera.h
+
+1738177088 c:\users\abdul\projects\minecraft\include\stb\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1748506947 c:\users\abdul\projects\minecraft\include\main.h
+
+1748522648 source:c:\users\abdul\projects\minecraft\src\camera.c
+	"GL/gl.h"
+	"windows.h"
+	"map.h"
+	"math.h"
+	"camera.h"
+	"time.h"
+	"sound.h"
+
+1748438203 c:\users\abdul\projects\minecraft\include\map.h
+

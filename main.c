@@ -345,6 +345,16 @@ void Map_Present()
 
     glEnable(GL_DEPTH_TEST);
 
+    static int hunger = 0;
+    hunger++;
+
+    if(hunger > 3500)
+    {
+        hunger = 0;
+        health--;
+        if(health < 1)
+            PostQuitMessage(0);
+    }
 
     static float alfa = 0;
     alfa = alfa + 0.001; // time of day and night cycle
@@ -525,6 +535,7 @@ void Player_Move()
         camera.z = Map_Obtain_Height(camera.x, camera.y) + 1.7;
 }
 
+/*
 void Player_Lifting_Object(HWND hwnd)
 {
     selectingMode = TRUE;
@@ -542,6 +553,7 @@ void Player_Lifting_Object(HWND hwnd)
         for(int i = 0; i < selecting_object_counter; i++)
             if(select_object[i].color_index == color[1])
             {
+
                 Animation_Setup(&animation,plant_array + select_object[i].planted_object_index);
 
                 // play a sound
@@ -551,7 +563,36 @@ void Player_Lifting_Object(HWND hwnd)
 
 
 }
+*/
 
+void Player_Lifting_Object(HWND hwnd)
+{
+    selectingMode = TRUE;
+    Map_Present();
+    selectingMode = FALSE;
+
+    GLubyte color[3];
+
+    int centerX = screenSize.x / 2;
+    int centerY = screenSize.y / 2;
+
+    // Flip Y for OpenGL's bottom-left origin
+    centerY = screenSize.y - centerY;
+
+    glReadPixels(centerX, centerY, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, color);
+
+    if(color[1] > 0)
+    {
+        for(int i = 0; i < selecting_object_counter; i++)
+        {
+            if(select_object[i].color_index == color[1])
+            {
+                Animation_Setup(&animation, plant_array + select_object[i].planted_object_index);
+                PlayPickupSound();
+            }
+        }
+    }
+}
 
 void Windows_Resize(int x, int y)
 {
@@ -620,18 +661,6 @@ void Slot_Present(int x, int y, int scale)
     glEnable(GL_DEPTH_TEST);
 }
 
-void DrawHotbar() {
-    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
-    int totalHotbarWidth = SlotSize * SLOT_SIZE;
-
-    int totalWidth = SlotSize * SLOT_SIZE;
-    int startX = (SCREEN_WIDTH - totalWidth) / 2;
-    int startY = SCREEN_HEIGHT - SLOT_SIZE - 20; // 20 px from bottom
-
-    Slot_Present(startX, startY, SLOT_SIZE);
-}
-
 void Slot_Selecting(int x, int y, int scale, int mx, int my)
 {
     if((my < y) || (my > y + scale)) return;
@@ -650,6 +679,7 @@ void Slot_Selecting(int x, int y, int scale, int mx, int my)
         }
     }
 }
+
 
 void Health_Present(int x, int y, int scale)
 {
@@ -671,7 +701,68 @@ void Health_Present(int x, int y, int scale)
     glDisableClientState(GL_VERTEX_ARRAY);
 }
 
+/*
+void Cross_Present()
+{
+    static float cross[] = {0,-1, 0,1, -1,0, 1,0};
 
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glVertexPointer(2,GL_FLOAT,0,cross);
+        glPushMatrix();
+            glColor3f(1,1,1);
+            glTranslatef(screenSize.x * 0.41f, screenSize.y * 0.41f, 0);
+            glScalef(15,15,1);
+            glLineWidth(3);
+            glDrawArrays(GL_LINES, 0, 4);
+        glPopMatrix();
+    glDisableClientState(GL_VERTEX_ARRAY);
+}
+*/
+
+void Cross_Present()
+{
+    static float cross[] = {0,-1, 0,1, -1,0, 1,0};
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glVertexPointer(2,GL_FLOAT,0,cross);
+    glPushMatrix();
+        glColor3f(1,1,1);
+        glTranslatef(screenSize.x / 2.0f, screenSize.y / 2.0f, 0);
+        glScalef(15,15,1);
+        glLineWidth(3);
+        glDrawArrays(GL_LINES, 0, 4);
+    glPopMatrix();
+    glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+void Menu_Present()
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0, screenSize.x, screenSize.y, 0, -1, 1); // UI projection
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    glDisable(GL_LIGHTING);
+    glDisable(GL_DEPTH_TEST);
+
+    int slotScale = 50;
+    int slotWidth = SlotSize * slotScale;
+    int slotX = (screenSize.x - slotWidth) / 2;     // Center horizontally
+    int slotY = screenSize.y - slotScale - 20;      // 20px from bottom
+
+    Slot_Present(slotX, slotY, slotScale);
+
+    int heartScale = 30;
+    int heartX = (screenSize.x - (health_maximum * heartScale)) / 2;
+    int heartY = slotY - heartScale - 10;           // above hotbar
+
+    Health_Present(heartX, heartY, heartScale);
+
+    Cross_Present(); // Draw crosshair in the center
+}
+
+/*
 void Menu_Present()
 {
     glMatrixMode(GL_PROJECTION);
@@ -685,8 +776,13 @@ void Menu_Present()
 
     Slot_Present(540,790,50);
     Health_Present(540, 750, 30);
-    //DrawHotbar();
+   // glTranslatef(screenSize.x * 0.41f, screenSize.y * 0.41f, 0);
+
+    Cross_Present();
+
 }
+
+*/
 
 
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -694,6 +790,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
                    LPSTR lpCmdLine,
                    int nCmdShow)
 {
+    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
     WNDCLASSEX wcex;
     HWND hwnd;
     HDC hDC;
@@ -725,23 +824,28 @@ int WINAPI WinMain(HINSTANCE hInstance,
                           "GLSample",
                           "OpenGL Sample",
                           WS_POPUP | WS_VISIBLE,
-                          CW_USEDEFAULT,
-                          CW_USEDEFAULT,
-                          SCREEN_WIDTH,
-                          SCREEN_HEIGHT,
+                          0,
+                          0,
+                          1920,
+                          1080,
                           NULL,
                           NULL,
                           hInstance,
                           NULL);
     //WS_OVERLAPPEDWINDOW  WS_POPUP | WS_VISIBLE
+    SetWindowPos(hwnd, HWND_TOP, 0, 0, screenWidth, screenHeight, SWP_NOZORDER);
     ShowWindow(hwnd, nCmdShow);
     SetCursor(wcex.hCursor);
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
 
+    /*
     RECT rectangle;
     GetClientRect(hwnd, &rectangle);
     Windows_Resize(rectangle.right, rectangle.bottom);
+    */
+    Windows_Resize(screenWidth, screenHeight);
+
     Map_Create();
 
     glEnable(GL_DEPTH_TEST);
@@ -809,8 +913,9 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         break;
 
         case WM_LBUTTONDOWN:
-            if(mouseBind)
+            if(mouseBind){
                 Player_Lifting_Object(hwnd);
+            }
             else
                 Slot_Selecting(540,790,50, LOWORD(lParam), HIWORD(lParam));
         break;
