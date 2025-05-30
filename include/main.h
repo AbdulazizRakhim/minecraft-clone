@@ -165,6 +165,8 @@ struct{
 
 } buffs = {0,0,0,0};
 
+int icon_running, icon_search;
+
 float Map_Obtain_Height(float x, float y);
 
 

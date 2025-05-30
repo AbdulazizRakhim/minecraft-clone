@@ -162,6 +162,7 @@ void Loading_Texture(char *file_name, int *aim)
 /// part of code
 #define sqr(a) (a)*(a)
 
+
 void Calculating_Normals(TCell a, TCell b, TCell c, TCell *n)
 {
     float wrki;
@@ -197,6 +198,7 @@ BOOL IsCoordInMap(float x, float y)
     return (x >= 0) && (x < map_width) && (y >= 0) && (y < map_height);
 }
 
+
 void Map_Create_Hills(int pos_X, int pos_Y, int radius, int height)
 {
     for(int i = pos_X - radius; i <= pos_X + radius; i++)
@@ -214,6 +216,7 @@ void Map_Create_Hills(int pos_X, int pos_Y, int radius, int height)
             }
 
 }
+
 
 float Map_Obtain_Height(float x, float y)
 {
@@ -243,6 +246,8 @@ void Map_Create()
     Loading_Texture("assets/textures/tree.png",     &texture_tree);
     Loading_Texture("assets/textures/tree2.png",    &texture_tree2);
     Loading_Texture("assets/textures/wood_tree.png",    &texture_wood);
+    Loading_Texture("assets/main icons/running.png",    &icon_running);
+    Loading_Texture("assets/main icons/search.png",    &icon_search);
 
     /// lighting
 
@@ -258,6 +263,10 @@ void Map_Create()
 
     glEnable(GL_ALPHA_TEST);
     glAlphaFunc(GL_GREATER, 0.99);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 
     ///removing the black frame
 
@@ -704,19 +713,19 @@ void Slot_Selecting(int x, int y, int scale, int mx, int my)
                     slot[i].type = -1;
 
             }
-            else if( (slot[i].type == texture_flower2) && (Slot_Get_Counter(texture_flower2) >= 5))
-            {
-                // 60 seconds
-                buffs.eye.time = 3600;
-                buffs.eye.time_maximum = 3600;
-                Slot_Deletion_Counter(texture_flower2, 5);
-            }
-            else if( (slot[i].type == texture_flower) && (Slot_Get_Counter(texture_flower) >= 5))
+            else if( (slot[i].type == texture_flower) && (Slot_Get_Counter(texture_flower) >= 2))
             {
                 // 30 seconds
                 buffs.speed.time = 1800;
                 buffs.speed.time_maximum = 1800;
-                Slot_Deletion_Counter(texture_flower, 5);
+                Slot_Deletion_Counter(texture_flower, 2);
+            }
+            else if( (slot[i].type == texture_flower2) && (Slot_Get_Counter(texture_flower2) >= 2))
+            {
+                // 60 seconds will be lightened
+                buffs.eye.time = 3600;
+                buffs.eye.time_maximum = 3600;
+                Slot_Deletion_Counter(texture_flower2, 2);
             }
 
             else
@@ -746,24 +755,6 @@ void Health_Present(int x, int y, int scale)
     glDisableClientState(GL_VERTEX_ARRAY);
 }
 
-/*
-void Cross_Present()
-{
-    static float cross[] = {0,-1, 0,1, -1,0, 1,0};
-
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glVertexPointer(2,GL_FLOAT,0,cross);
-        glPushMatrix();
-            glColor3f(1,1,1);
-            glTranslatef(screenSize.x * 0.41f, screenSize.y * 0.41f, 0);
-            glScalef(15,15,1);
-            glLineWidth(3);
-            glDrawArrays(GL_LINES, 0, 4);
-        glPopMatrix();
-    glDisableClientState(GL_VERTEX_ARRAY);
-}
-*/
-
 void Cross_Present()
 {
     static float cross[] = {0,-1, 0,1, -1,0, 1,0};
@@ -778,6 +769,36 @@ void Cross_Present()
         glDrawArrays(GL_LINES, 0, 4);
     glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+void Buff_Present(int x, int y, int scale, TBuff buff, int textureID)
+{
+
+    if(buff.time > 0)
+    {
+        glEnableClientState(GL_VERTEX_ARRAY);
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+        glVertexPointer(2, GL_FLOAT, 0, slotRectangle);
+        glTexCoordPointer(2, GL_FLOAT, 0, slotRectangleUV);
+            glPushMatrix();
+                glTranslatef(x, y, 0);
+                glScalef(scale, scale, 1);
+                glColor3f(1,1,1);
+                glEnable(GL_TEXTURE_2D);
+                glBindTexture(GL_TEXTURE_2D, textureID);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+
+                glScalef(1, 1 - (buff.time / (float)buff.time_maximum), 1);
+                glColor4f(1,1,1, 0.5);
+                glDisable(GL_ALPHA_TEST);
+                glDisable(GL_TEXTURE_2D);
+                glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+                glEnable(GL_ALPHA_TEST);
+            glPopMatrix();
+        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+        glDisableClientState(GL_VERTEX_ARRAY);
+    }
+
 }
 
 void Menu_Present()
@@ -805,29 +826,28 @@ void Menu_Present()
     Health_Present(heartX, heartY, heartScale);
 
     Cross_Present(); // Draw crosshair in the center
+
+    int hotbarX = 540;        // Hotbar starting X
+    int hotbarY = 790;        // Hotbar Y position
+    int slotSize = 50;
+    int iconSize = 40;
+
+    // Vertical alignment: center icon with slot
+    int iconY = hotbarY + (slotSize - iconSize) / 2;
+
+    // Just left of the first slot
+    int iconRunningX = hotbarX - iconSize - 5; // 5px padding
+
+    // Just right of the last slot
+    int iconSearchX = hotbarX + SlotSize * slotSize + 10; // 5px padding
+
+    Buff_Present(iconRunningX, iconY, iconSize, buffs.speed, icon_running);
+    Buff_Present(iconSearchX, iconY, iconSize, buffs.eye, icon_search);
+
+
+   // Buff_Present(10,110,50, buffs.speed, icon_running);
+   // Buff_Present(60,110,50, buffs.eye, icon_search);
 }
-
-/*
-void Menu_Present()
-{
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(0, screenSize.x, screenSize.y, 0, -1, 1);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    glDisable(GL_LIGHTING);
-    glDisable(GL_DEPTH_TEST);
-
-    Slot_Present(540,790,50);
-    Health_Present(540, 750, 30);
-   // glTranslatef(screenSize.x * 0.41f, screenSize.y * 0.41f, 0);
-
-    Cross_Present();
-
-}
-
-*/
 
 
 int WINAPI WinMain(HINSTANCE hInstance,
