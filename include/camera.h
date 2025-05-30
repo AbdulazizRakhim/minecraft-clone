@@ -27,7 +27,7 @@ extern struct Structure_Camera camera;
 void Camera_Implement();
 void Camera_Rotating(float X_angle, float Z_angle);
 void Camera_Mouse(int center_X, int center_Y, float speed);
-void Camera_Moving(int forwardMoving, int rightMoving, int jumpPressed);
+void Camera_Moving(int forwardMoving, int rightMoving, int jumpPressed, float speed);
 
 
 #endif // CAMERA_H_INCLUDED

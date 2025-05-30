@@ -11,9 +11,11 @@
 #include "main.h"
 #include "sound.h"
 
+
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
 void DisableOpenGL(HWND, HDC, HGLRC);
+
 
 void Animation_Setup(TInteraction *anm, TObject *obj)
 {
@@ -331,6 +333,33 @@ void Map_Create()
 
 }
 
+void buff_timer(TBuff *buff)
+{
+    if(buff->time > 0)
+    {
+        buff->time--;
+            if(buff->time <= 0)
+                buff->time_maximum = 0;
+    }
+}
+
+void Map_Procedure()
+{
+    static int hunger = 0;
+    hunger++;
+
+     if(hunger > 3500)
+    {
+        hunger = 0;
+        health--;
+        if(health < 1)
+            PostQuitMessage(0);
+    }
+
+    buff_timer(&buffs.speed);
+    buff_timer(&buffs.eye);
+}
+
 void Map_Present()
 {
     ///
@@ -345,19 +374,9 @@ void Map_Present()
 
     glEnable(GL_DEPTH_TEST);
 
-    static int hunger = 0;
-    hunger++;
-
-    if(hunger > 3500)
-    {
-        hunger = 0;
-        health--;
-        if(health < 1)
-            PostQuitMessage(0);
-    }
 
     static float alfa = 0;
-    alfa = alfa + 0.001; // time of day and night cycle
+    alfa = alfa + 0.01; // time of day and night cycle
 
     if(alfa > 180)
         alfa = alfa - 360;
@@ -492,6 +511,11 @@ void Map_Present()
                                 continue;
 
                         }
+                        else
+                        {
+                            if( (plant_array[i].type == texture_mushroom) && (buffs.eye.time > 0))
+                                glDisable(GL_LIGHTING);
+                        }
 
                       glBindTexture(GL_TEXTURE_2D, plant_array[i].type);
                       glPushMatrix();
@@ -499,6 +523,13 @@ void Map_Present()
                         glScalef( plant_array[i].scale, plant_array[i].scale, plant_array[i].scale);
                         glDrawElements(GL_TRIANGLES, plant_index_counter, GL_UNSIGNED_INT, plant_index);
                       glPopMatrix();
+
+                      if(!selectingMode)
+                      {
+                        if( (plant_array[i].type == texture_mushroom) && (buffs.eye.time > 0))
+                                glEnable(GL_LIGHTING);
+                      }
+
                     }
 
             glDisableClientState(GL_VERTEX_ARRAY);
@@ -526,44 +557,16 @@ void Player_Move()
     if (GetAsyncKeyState('A') & 0x8000) right -= 1;
     if (GetAsyncKeyState(VK_SPACE) & 0x8000) jump = 1;
 
-    Camera_Moving(forward, right, jump);
+    float speed = 0.07f + (buffs.speed.time > 0 ? 0.1f : 0.0f);
+
+    Camera_Moving(forward, right, jump, speed);
 
     if(mouseBind)
-        Camera_Mouse(400, 400, 0.2);
+        Camera_Mouse(screenSize.x / 2, screenSize.y /2, 0.2f);
 
     if (!camera.isJumping)
         camera.z = Map_Obtain_Height(camera.x, camera.y) + 1.7;
 }
-
-/*
-void Player_Lifting_Object(HWND hwnd)
-{
-    selectingMode = TRUE;
-    Map_Present();
-    selectingMode = FALSE;
-
-    RECT rectangle;
-    GLubyte color[3];
-    GetClientRect(hwnd, &rectangle);
-    glReadPixels(rectangle.right / 2.0, rectangle.bottom / 2.0, 1, 1, GL_RGB,
-                 GL_UNSIGNED_BYTE,color);
-
-    if(color[1] > 0)
-    {
-        for(int i = 0; i < selecting_object_counter; i++)
-            if(select_object[i].color_index == color[1])
-            {
-
-                Animation_Setup(&animation,plant_array + select_object[i].planted_object_index);
-
-                // play a sound
-                PlayPickupSound();
-            }
-    }
-
-
-}
-*/
 
 void Player_Lifting_Object(HWND hwnd)
 {
@@ -661,6 +664,30 @@ void Slot_Present(int x, int y, int scale)
     glEnable(GL_DEPTH_TEST);
 }
 
+int Slot_Get_Counter(int type)
+{
+    int counter = 0;
+
+    for(int i = 0; i < SlotSize; i++)
+        if(slot[i].type == type)
+            counter++;
+
+    return counter;
+}
+
+void Slot_Deletion_Counter(int type, int counter)
+{
+    for(int i = 0; i < SlotSize; i++)
+        if(slot[i].type == type)
+        {
+          slot[i].type = -1;
+          counter--;
+          if(counter <= 0)
+                return;
+        }
+
+}
+
 void Slot_Selecting(int x, int y, int scale, int mx, int my)
 {
     if((my < y) || (my > y + scale)) return;
@@ -674,8 +701,26 @@ void Slot_Selecting(int x, int y, int scale, int mx, int my)
                 health++;
                     if(health > health_maximum)
                         health = health_maximum;
+                    slot[i].type = -1;
+
             }
-            slot[i].type = -1;
+            else if( (slot[i].type == texture_flower2) && (Slot_Get_Counter(texture_flower2) >= 5))
+            {
+                // 60 seconds
+                buffs.eye.time = 3600;
+                buffs.eye.time_maximum = 3600;
+                Slot_Deletion_Counter(texture_flower2, 5);
+            }
+            else if( (slot[i].type == texture_flower) && (Slot_Get_Counter(texture_flower) >= 5))
+            {
+                // 30 seconds
+                buffs.speed.time = 1800;
+                buffs.speed.time_maximum = 1800;
+                Slot_Deletion_Counter(texture_flower, 5);
+            }
+
+            else
+                slot[i].type = -1;
         }
     }
 }
@@ -882,6 +927,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
             if(GetForegroundWindow() == hwnd)
                     Player_Move();
 
+            Map_Procedure();
             Map_Present();
             Menu_Present();
 

@@ -36,31 +36,23 @@ void Camera_Rotating(float X_angle, float Z_angle)
     if (camera.raise_lower > 180) camera.raise_lower = 180;
 }
 
-void Camera_Mouse(int center_X, int center_Y, float speed)
+void Camera_Mouse(int center_X, int center_Y, float sensitivity)
 {
     POINT cursor;
     POINT base = {center_X, center_Y};
     GetCursorPos(&cursor);
-    Camera_Rotating((base.y - cursor.y) * speed, (base.x - cursor.x) * 5.0);
+
+    float deltaX = base.x - cursor.x;
+    float deltaY = base.y - cursor.y;
+
+    Camera_Rotating(deltaY * sensitivity, deltaX * sensitivity);
     SetCursorPos(base.x, base.y);
 }
 
-void Camera_Moving(int forwardMoving, int rightMoving, int jumpPressed)
+void Camera_Moving(int forwardMoving, int rightMoving, int jumpPressed, float speed)
 {
     static int isPlaying = 0;
     static int lastSprintState = -1;
-
-    float baseSpeed = 0.07f;
-    float sprintMultiplier = 2.0f;
-    float speed = baseSpeed;
-
-    // Sprint check
-    if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {
-        speed *= sprintMultiplier;
-        camera.isSprinting = 1;
-    } else {
-        camera.isSprinting = 0;
-    }
 
     // Crouch check
     int isCtrlDown = (GetAsyncKeyState(VK_CONTROL) & 0x8000);
@@ -73,8 +65,12 @@ void Camera_Moving(int forwardMoving, int rightMoving, int jumpPressed)
         camera.isCrouching = 0;
     }
 
-    if(camera.isCrouching)
-        speed = speed * 0.4f;
+    // Apply crouch penalty to speed
+    if (camera.isCrouching)
+        speed *= 0.4f;
+
+    // Set sprinting flag
+    camera.isSprinting = (speed > 0.1f);
 
     float playerHeight = camera.isCrouching ? 0.9f : 1.7f;
     float terrainHeight = Map_Obtain_Height(camera.x, camera.y);
@@ -102,7 +98,7 @@ void Camera_Moving(int forwardMoving, int rightMoving, int jumpPressed)
         camera.y += cos(angle) * speed;
     }
 
-    // Footstep/sprint sounds (only play if grounded)
+    // Footstep/sprint sounds
     if (speed != 0 && camera.z <= groundHeight && !camera.isJumping) {
         int currentSprintState = camera.isSprinting;
 

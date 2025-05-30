@@ -154,6 +154,16 @@ float heart_shape[] = {0.5,0.25, 0.25,0, 0,0.25, 0.5,1, 1,0.25, 0.75,0};
 
 BOOL mouseBind = TRUE;
 
+typedef struct{
+    int time;
+    int time_maximum;
+} TBuff;
+
+struct{
+    TBuff speed;
+    TBuff eye;
+
+} buffs = {0,0,0,0};
 
 float Map_Obtain_Height(float x, float y);
 
