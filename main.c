@@ -16,6 +16,47 @@ LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
 void DisableOpenGL(HWND, HDC, HGLRC);
 
+void Recipe_Add(int items[3][3], int itemOut)
+{
+    recipeCnt++;
+    recipe = realloc(recipe, sizeof(TRecipe) * recipeCnt);
+
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            recipe[recipeCnt - 1].items[i][j] = items[i][j];
+
+    recipe[recipeCnt - 1].itemOut = itemOut;
+}
+
+void Recipe_Check()
+{
+    for (int k = 0; k < recipeCnt; k++)
+    {
+        BOOL checkOK = TRUE;
+
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                if (craft_menu.items[i][j].type != recipe[k].items[i][j])
+                    checkOK = FALSE;
+
+        if (checkOK)
+        {
+            craft_menu.itemOut.type = recipe[k].itemOut;
+            break;
+        }
+        else
+        {
+            craft_menu.itemOut.type = 0;
+        }
+    }
+}
+
+
+BOOL isPointInSlot(TSlot slot, int x, int y)
+{
+    return (   (x > slot.x) && (x < slot.x + slot.width)
+            && (y > slot.y) && (y < slot.y + slot.height));
+}
 
 void Animation_Setup(TInteraction *anm, TObject *obj)
 {
@@ -43,7 +84,7 @@ void Animated(TInteraction *anm)
                 int i;
 
                 for(i = 0; i < SlotSize; i++)
-                    if(slot[i].type < 0)
+                    if(slot[i].type <= 0)
                     {
                         slot[i].type = anm->obj->type;
                         break;
@@ -232,11 +273,18 @@ float Map_Obtain_Height(float x, float y)
 
 }
 
+void Game_Create()
+{
+    memset(&craft_menu, 0, sizeof(craft_menu));
+    craft_menu.show = FALSE;
+
+
+}
 
 void Map_Create()
 {
     for(int i = 0; i < SlotSize; i++)
-        slot[i].type = -1;
+        slot[i].type = 0;
 
     Loading_Texture("assets/textures/ground.png",   &texture_ground);
     Loading_Texture("assets/textures/grass.png",    &texture_grass);
@@ -248,6 +296,37 @@ void Map_Create()
     Loading_Texture("assets/textures/wood_tree.png",    &texture_wood);
     Loading_Texture("assets/main icons/running.png",    &icon_running);
     Loading_Texture("assets/main icons/search.png",    &icon_search);
+    Loading_Texture("assets/main icons/mortar.png",    &icon_mortar);
+    Loading_Texture("assets/main icons/potion_eye.png",    &icon_potion_search);
+    Loading_Texture("assets/main icons/potion_speed.png",    &icon_potion_speed);
+    Loading_Texture("assets/main icons/potion.png",    &icon_potion_life);
+
+    slot[0].type = icon_mortar;
+
+    Recipe_Add(
+        (int[3][3]){
+            { texture_flower2,     0,           texture_flower2 },
+            { 0,               texture_mushroom,    0            },
+            { texture_flower2,     0,           texture_flower2 }
+        },
+        icon_potion_search
+    );
+
+    Recipe_Add(
+        (int[3][3]){
+            { texture_flower, texture_flower, texture_flower},
+            { 0,          0,          0          },
+            { texture_flower, texture_flower, texture_flower }
+        },
+        icon_potion_speed
+    );
+
+    Recipe_Add(
+        (int[3][3]){
+             0,         texture_mushroom,    0 ,
+             texture_mushroom,  texture_mushroom,    texture_mushroom,
+             0,  texture_mushroom,           0 },
+        icon_potion_life);
 
     /// lighting
 
@@ -385,7 +464,7 @@ void Map_Present()
 
 
     static float alfa = 0;
-    alfa = alfa + 0.01; // time of day and night cycle
+    alfa = alfa + 0.001; // time of day and night cycle
 
     if(alfa > 180)
         alfa = alfa - 360;
@@ -606,6 +685,32 @@ void Player_Lifting_Object(HWND hwnd)
     }
 }
 
+void craftMenu_Resize(int scale)
+{
+    craft_menu.width = scale * 6;
+    craft_menu.height = scale * 4;
+
+    craft_menu.x = (screenSize.x - craft_menu.width) * 0.5;
+    craft_menu.y = (screenSize.y - craft_menu.height) * 0.5;
+
+    int scale05 = scale * 0.5;
+
+    for(int i = 0; i < 3; i++)
+        for(int j = 0; j < 3; j++)
+        {
+            craft_menu.items[i][j].x = craft_menu.x + scale05 + i * scale;
+            craft_menu.items[i][j].y = craft_menu.y + scale05 + j * scale;
+            craft_menu.items[i][j].width = scale;
+            craft_menu.items[i][j].height = scale;
+        }
+
+        craft_menu.itemOut.x = craft_menu.x + scale05 + 4 * scale;
+        craft_menu.itemOut.y = craft_menu.y + scale05 + 1 * scale;
+        craft_menu.itemOut.width = scale;
+        craft_menu.itemOut.height = scale;
+
+}
+
 void Windows_Resize(int x, int y)
 {
     glViewport(0, 0, x, y);
@@ -613,6 +718,8 @@ void Windows_Resize(int x, int y)
     screenSize.y = y;
 
     screenKoef = x / (float)y;
+    craftMenu_Resize(50);
+
     float size = 0.1;
 
     ///
@@ -625,7 +732,7 @@ void Windows_Resize(int x, int y)
 
 }
 
-void Slot_Present(int x, int y, int scale)
+void Cell_Slot_Present(int x, int y, int scaleX, int scaleY, int type)
 {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -635,30 +742,20 @@ void Slot_Present(int x, int y, int scale)
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glVertexPointer(2, GL_FLOAT, 0, slotRectangle);
     glTexCoordPointer(2, GL_FLOAT, 0, slotRectangleUV);
+    glPushMatrix();
+        glTranslatef(x, y, 0);
+        glScalef(scaleX, scaleY, 1);
+        glColor3ub(61, 61, 41);
+        glDisable(GL_TEXTURE_2D);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-    for(int i = 0; i < SlotSize; i++)
-    {
-        glPushMatrix();
-            glTranslatef(x + i * scale, y, 0);
-            glScalef(scale, scale, 1);
-            glColor3ub(61, 61, 41);
-            glDisable(GL_TEXTURE_2D);
+        if(type > 0)
+        {
+            glColor3f(1,1,1);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, type);
             glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-
-            if (i == selectedSlotIndex)
-            {
-            glColor4ub(255, 255, 255, 100);  // soft white
-            glLineWidth(3);
-            glDrawArrays(GL_LINE_LOOP, 0, 4);
-            }
-
-            if(slot[i].type > 0)
-            {
-                glColor3f(1,1,1);
-                glEnable(GL_TEXTURE_2D);
-                glBindTexture(GL_TEXTURE_2D, slot[i].type);
-                glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-            }
+        }
 
             glColor3ub(160, 160, 160);
             glLineWidth(3);
@@ -666,11 +763,22 @@ void Slot_Present(int x, int y, int scale)
             glDrawArrays(GL_LINE_LOOP, 0, 4);
 
         glPopMatrix();
-    }
 
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnable(GL_DEPTH_TEST);
+}
+
+void Slot_Present(int x, int y, int scale)
+{
+    for(int i = 0; i < SlotSize; i++)
+        Cell_Slot_Present(x + i * scale, y, scale, scale, slot[i].type);
+}
+
+void handItemType_Present()
+{
+    if (( handItemType > 0) && (!mouseBind))
+        Cell_Slot_Present(mousePosition.x, mousePosition.y, 50,50, handItemType);
 }
 
 int Slot_Get_Counter(int type)
@@ -697,43 +805,65 @@ void Slot_Deletion_Counter(int type, int counter)
 
 }
 
-void Slot_Selecting(int x, int y, int scale, int mx, int my)
+void Slot_Selecting(int x, int y, int scale, int mx, int my, int button)
 {
-    if((my < y) || (my > y + scale)) return;
+    if ((my < y) || (my > y + scale)) return;
 
-    for(int i = 0; i < SlotSize; i++)
+    for (int i = 0; i < SlotSize; i++)
     {
-        if((mx > x + i * scale) && (mx < x + (i + 1) * scale))
+        if ((mx > x + i * scale) && (mx < x + (i + 1) * scale))
         {
-            if(slot[i].type == texture_mushroom)
+            if (button == WM_LBUTTONDOWN)
             {
-                health++;
-                    if(health > health_maximum)
+                int type = handItemType;
+                handItemType = slot[i].type;
+                slot[i].type = type;
+            }
+            else if (slot[i].type == icon_mortar)
+                craft_menu.show = !craft_menu.show;
+
+            else if (button == WM_RBUTTONDOWN)
+            {
+                printf("Right click at slot %d, type %d\n", i, slot[i].type);
+
+                if (slot[i].type == texture_mushroom)
+                {
+                    health++;
+                    if (health > health_maximum)
                         health = health_maximum;
                     slot[i].type = -1;
+                }
 
-            }
-            else if( (slot[i].type == texture_flower) && (Slot_Get_Counter(texture_flower) >= 2))
-            {
-                // 30 seconds
-                buffs.speed.time = 1800;
-                buffs.speed.time_maximum = 1800;
-                Slot_Deletion_Counter(texture_flower, 2);
-            }
-            else if( (slot[i].type == texture_flower2) && (Slot_Get_Counter(texture_flower2) >= 2))
-            {
-                // 60 seconds will be lightened
-                buffs.eye.time = 3600;
-                buffs.eye.time_maximum = 3600;
-                Slot_Deletion_Counter(texture_flower2, 2);
-            }
+                if (slot[i].type == icon_potion_life)
+                {
+                    health += 9;
+                    if (health > health_maximum)
+                        health = health_maximum;
+                    slot[i].type = -1;
+                }
 
-            else
-                slot[i].type = -1;
+                else if (slot[i].type == icon_potion_speed)
+                {
+                    // 30 seconds
+                    buffs.speed.time = 1800;
+                    buffs.speed.time_maximum = 1800;
+                    slot[i].type = -1;
+                }
+                else if (slot[i].type == icon_potion_search)
+                {
+                    buffs.eye.time = 3600;
+                    buffs.eye.time_maximum = 3600;
+                    slot[i].type = -1;
+                }
+                else
+                {
+                    // Only delete item if it's not one of the specific buff items
+                    slot[i].type = -1;
+                }
+            }
         }
     }
 }
-
 
 void Health_Present(int x, int y, int scale)
 {
@@ -801,6 +931,57 @@ void Buff_Present(int x, int y, int scale, TBuff buff, int textureID)
 
 }
 
+void craftMenu_Click(int mx, int my, int button)
+{
+    if ((!craft_menu.show) || (button != WM_LBUTTONDOWN)) return;
+
+for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 3; j++)
+        if (isPointInSlot(craft_menu.items[i][j], mx, my))
+        {
+            int type = handItemType;
+            handItemType = craft_menu.items[i][j].type;
+            craft_menu.items[i][j].type = type;
+
+            if (craft_menu.items[i][j].type <= 0)
+                craft_menu.items[i][j].type = 0;
+        }
+
+    if (isPointInSlot(craft_menu.itemOut, mx, my)
+        && (handItemType <= 0)
+        && (craft_menu.itemOut.type > 0))
+    {
+        handItemType = craft_menu.itemOut.type;
+        craft_menu.itemOut.type = 0;
+
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                craft_menu.items[i][j].type = 0;
+    }
+    Recipe_Check();
+}
+
+void craftMenu_Present()
+{
+    if((!craft_menu.show) || (mouseBind)) return;
+
+    Cell_Slot_Present(craft_menu.x, craft_menu.y, craft_menu.width, craft_menu.height, 0);
+
+    for(int i = 0; i < 3; i++)
+        for(int j = 0; j < 3; j++)
+            Cell_Slot_Present(craft_menu.items[i][j].x,
+                              craft_menu.items[i][j].y,
+                              craft_menu.items[i][j].width,
+                              craft_menu.items[i][j].height,
+                              craft_menu.items[i][j].type);
+
+    Cell_Slot_Present(craft_menu.itemOut.x,
+                      craft_menu.itemOut.y,
+                      craft_menu.itemOut.width,
+                      craft_menu.itemOut.height,
+                      craft_menu.itemOut.type);
+}
+
 void Menu_Present()
 {
     glMatrixMode(GL_PROJECTION);
@@ -826,6 +1007,7 @@ void Menu_Present()
     Health_Present(heartX, heartY, heartScale);
 
     Cross_Present(); // Draw crosshair in the center
+    craftMenu_Present(50);
 
     int hotbarX = 540;        // Hotbar starting X
     int hotbarY = 790;        // Hotbar Y position
@@ -844,9 +1026,8 @@ void Menu_Present()
     Buff_Present(iconRunningX, iconY, iconSize, buffs.speed, icon_running);
     Buff_Present(iconSearchX, iconY, iconSize, buffs.eye, icon_search);
 
+    handItemType_Present();
 
-   // Buff_Present(10,110,50, buffs.speed, icon_running);
-   // Buff_Present(60,110,50, buffs.eye, icon_search);
 }
 
 
@@ -944,6 +1125,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
         {
             /* OpenGL animation code goes here */
 
+            GetCursorPos(&mousePosition);
+            ScreenToClient(hwnd, &mousePosition);
+
             if(GetForegroundWindow() == hwnd)
                     Player_Move();
 
@@ -978,13 +1162,21 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             PostQuitMessage(0);
         break;
 
-        case WM_LBUTTONDOWN:
-            if(mouseBind){
-                Player_Lifting_Object(hwnd);
-            }
-            else
-                Slot_Selecting(540,790,50, LOWORD(lParam), HIWORD(lParam));
+        case WM_CREATE:
+            Game_Create();
         break;
+
+        case WM_LBUTTONDOWN:
+        case WM_RBUTTONDOWN:
+            if(mouseBind)
+                Player_Lifting_Object(hwnd);
+            else
+            {
+             Slot_Selecting(540,790,50, LOWORD(lParam), HIWORD(lParam), uMsg);
+             craftMenu_Click(LOWORD(lParam),HIWORD(lParam), uMsg);
+            }
+        break;
+
 
         case WM_SIZE:
             Windows_Resize(LOWORD(lParam), HIWORD(lParam));
@@ -1007,7 +1199,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
                 case 'E':
                     mouseBind = !mouseBind;
-
+                    SetCursorPos(400,400);
                         if(mouseBind)
                         {
 

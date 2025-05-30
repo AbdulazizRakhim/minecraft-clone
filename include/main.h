@@ -129,6 +129,8 @@ float screenKoef;
 
 typedef struct{
     int type;
+    int x, y;
+    int width, height;
 }TSlot;
 
 // 16
@@ -166,6 +168,30 @@ struct{
 } buffs = {0,0,0,0};
 
 int icon_running, icon_search;
+int icon_mortar, icon_potion_search, icon_potion_speed, icon_potion_life;
+int handItemType = 0;
+
+POINT mousePosition;
+
+struct{
+
+    int x, y;
+    int width, height;
+    TSlot items[3][3];
+    TSlot itemOut;
+    BOOL show;
+
+}craft_menu;
+
+typedef struct
+{
+    int items[3][3];
+    int itemOut;
+
+}TRecipe;
+
+TRecipe *recipe;
+int recipeCnt = 0;
 
 float Map_Obtain_Height(float x, float y);
 
